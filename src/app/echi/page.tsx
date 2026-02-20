@@ -42,7 +42,7 @@ export default async function EchiPage() {
                             </h2>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '2rem' }}>
+                        <div style={{ columns: '320px', columnGap: '2rem' }}>
                             {group.items.map((anime) => {
                                 globalIndex++;
                                 return (

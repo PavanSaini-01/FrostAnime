@@ -30,31 +30,31 @@ export function ActionCard({ anime, index }: ActionCardProps) {
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
-                height: '100%',
+                height: 'fit-content',
+                breakInside: 'avoid',
+                marginBottom: '2rem',
                 border: '1px solid rgba(255,255,255,0.05)'
             }}
         >
             {/* Image Section */}
-            <div style={{ position: 'relative', width: '100%', height: '260px' }} className="flex-shrink-0">
+            <div style={{ position: 'relative', width: '100%', height: '400px' }} className="flex-shrink-0">
                 <motion.div
-                    style={{ position: 'relative', width: '100%', height: '100%' }}
+                    style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: '#1e293b', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.4 }}
                 >
-                    <Image
-                        src={anime.imagePath}
-                        alt={anime.title}
-                        fill
-                        style={{ objectFit: 'cover' }}
-                    />
+                    {anime.imagePath ? (
+                        <Image
+                            src={anime.imagePath}
+                            alt={anime.title}
+                            fill
+                            style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
+                            unoptimized
+                        />
+                    ) : (
+                        <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>No Image</span>
+                    )}
                 </motion.div>
-
-                <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)', // Reduced gradient like anime-card
-                    pointerEvents: 'none'
-                }} />
 
                 {/* Title Overlay - Bottom Left */}
                 <div style={{

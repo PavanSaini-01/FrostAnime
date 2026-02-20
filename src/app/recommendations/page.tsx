@@ -23,7 +23,7 @@ export default async function RecommendationsPage() {
                 </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gap: '2.5rem' }}>
+            <div style={{ columns: '320px', columnGap: '2.5rem' }}>
                 {recommendations.map((anime, index) => (
                     <AnimeCard key={anime.id} anime={anime} index={index} />
                 ))}

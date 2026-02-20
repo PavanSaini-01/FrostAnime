@@ -5,7 +5,8 @@ import * as React from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
-import { Menu } from "lucide-react"
+import { Menu, Search } from "lucide-react"
+import { SearchBar } from "@/components/search-bar"
 
 import { usePathname } from "next/navigation"
 
@@ -82,7 +83,8 @@ export function Navbar() {
                             { name: "Romance", href: "/romance" },
                             { name: "Action", href: "/action" },
                             { name: "Echi", href: "/echi" },
-                            { name: "Frozen", href: "/frozen" }
+                            { name: "Frozen", href: "/frozen" },
+                            { name: "Blog", href: "/blog" }
                         ].map((item) => {
                             const isActive = pathname === item.href;
                             const isHovered = hoveredPath === item.href;
@@ -131,6 +133,7 @@ export function Navbar() {
 
                     {/* Actions */}
                     <div className="flex items-center gap-4">
+                        <SearchBar />
                         <ThemeToggle />
                         <button className="md:hidden p-2 rounded-full" style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--foreground)' }}>
                             <Menu className="w-5 h-5" />

@@ -1,0 +1,398 @@
+[
+  {
+    "category": "🏆 Most Popular Romance",
+    "description": "The biggest, most beloved romantic hits in anime history.",
+    "items": [
+      {
+        "id": "11757",
+        "title": "Sword Art Online",
+        "vibe": "In the near future, a Virtual Reality Massive Multiplayer Online Role-Playing Game (VRMMORPG) called Sword Art Online has been released where players control their avatars with their bodies using a piece of technology called Nerve Gear. One day, players discover they cannot log out, as the game creator is holding them captive unless they reach the 100th floor of the game's tower and defeat the final boss.",
+        "highlight": {
+          "label": "The Vibe",
+          "content": "A must-watch romance classic."
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11757-SxYDUzdr9rh2.jpg",
+        "tags": [
+          "Action",
+          "Adventure",
+          "Fantasy"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "21519",
+        "title": "Your Name.",
+        "vibe": "Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city, Taki Tachibana lives a busy life as a high school student while juggling his part-time job and hopes for a future in architecture.\n\nOne day, Mitsuha awakens in a room that is not her own and suddenly finds herself living the dream life in Tokyo—but in Taki's body! Elsewhere, Taki finds himself living Mitsuha's life in the humble countryside.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 85%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-SUo3ZQuCbYhJ.png",
+        "tags": [
+          "Drama",
+          "Romance",
+          "Supernatural"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "20954",
+        "title": "A Silent Voice",
+        "vibe": "After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its back on him.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 88%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20954-sYRfE5jQRtSB.jpg",
+        "tags": [
+          "Drama",
+          "Romance",
+          "Slice of Life"
+        ],
+        "platform": "Various Platforms"
+      },
+      {
+        "id": "20665",
+        "title": "Your lie in April",
+        "vibe": "Piano prodigy Arima Kousei dominated the competition and all child musicians knew his name. But after his mother, who was also his instructor, passed away, he had a mental breakdown while performing at a recital.",
+        "highlight": {
+          "label": "The Vibe",
+          "content": "A must-watch romance classic."
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20665-TLgkL8T8IRFd.png",
+        "tags": [
+          "Drama",
+          "Music",
+          "Romance"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-",
+        "vibe": "In the story, Subaru Natsuki is an ordinary high school student who is lost in an alternate world, where he is rescued by a beautiful, silver-haired girl. He stays near her to return the favor, but the destiny she is burdened with is more than Subaru can imagine.",
+        "highlight": {
+          "label": "The Vibe",
+          "content": "A must-watch romance classic."
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21355-wRVUrGxpvIQQ.jpg",
+        "tags": [
+          "Action",
+          "Adventure",
+          "Drama"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "101291",
+        "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+        "vibe": "There's a rumor about a mysterious phenomenon called \"puberty syndrome.\" For example, Sakuta Azusagawa is a high school student who suddenly sees a bunny girl appear in front of him. The girl is actually a girl named Mai Sakurajima, who is Sakuta's upperclassman who is also a famous actress who has gone on hiatus from the entertainment industry.",
+        "highlight": {
+          "label": "The Vibe",
+          "content": "A must-watch romance classic."
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101291-wfEdgPqtfU0l.jpg",
+        "tags": [
+          "Comedy",
+          "Drama",
+          "Mystery"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "101921",
+        "title": "Kaguya-sama: Love is War",
+        "vibe": "Known for being both brilliant and powerful, Miyuki Shirogane and Kaguya Shinomiya lead the illustrious Shuchiin Academy as near equals. And everyone thinks they’d make a great couple.",
+        "highlight": {
+          "label": "The Vibe",
+          "content": "A must-watch romance classic."
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101921-ufrjLzhSz7L1.jpg",
+        "tags": [
+          "Comedy",
+          "Psychological",
+          "Romance"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "4224",
+        "title": "Toradora!",
+        "vibe": "Ryuuji Takasu is a gentle high school student with a love for housework; but in contrast to his kind nature, he has an intimidating face that often gets him labeled as a delinquent. On the other hand is Taiga Aisaka, a small, doll-like student, who is anything but a cute and fragile girl.",
+        "highlight": {
+          "label": "The Vibe",
+          "content": "A must-watch romance classic."
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx4224-PXVMBLNwy2aF.jpg",
+        "tags": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "124080",
+        "title": "Horimiya",
+        "vibe": "A secret life is the one thing they have in common. At school, Hori is a prim and perfect social butterfly, but the truth is she's a brash homebody.",
+        "highlight": {
+          "label": "The Vibe",
+          "content": "A must-watch romance classic."
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx124080-oeviACzGv5Vx.jpg",
+        "tags": [
+          "Comedy",
+          "Romance",
+          "Slice of Life"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "99423",
+        "title": "DARLING in the FRANXX",
+        "vibe": "The distant future: Humanity established the mobile fort city, Plantation, upon the ruined wasteland. Within the city were pilot quarters, Mistilteinn, otherwise known as the “Birdcage.” That is where the children live...",
+        "highlight": {
+          "label": "The Vibe",
+          "content": "A must-watch romance classic."
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx99423-8MBxtwCeHf8B.png",
+        "tags": [
+          "Action",
+          "Drama",
+          "Mecha"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "120120",
+        "title": "Tokyo Revengers",
+        "vibe": "Takemichi Hanagaki is a freelancer that's reached the absolute pits of despair in his life. He finds out that the only girlfriend he ever had in his life that he dated in middle school, Hinata Tachibana, had been killed by the ruthless Tokyo Manji Gang.\n\nThe day after hearing about her death, he's standing on the station platform and ends up being pushed over onto the tracks by a herd of people.",
+        "highlight": {
+          "label": "The Vibe",
+          "content": "A must-watch romance classic."
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx120120-cWDmnmeEntSe.jpg",
+        "tags": [
+          "Action",
+          "Drama",
+          "Romance"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "112641",
+        "title": "Kaguya-sama: Love is War?",
+        "vibe": "After a slow but eventful summer vacation, Shuchiin Academy's second term is now starting in full force. As August transitions into September, Miyuki Shirogane's birthday looms ever closer, leaving Kaguya Shinomiya in a serious predicament as to how to celebrate it.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 85%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112641-zoGC8d6FaPXU.jpg",
+        "tags": [
+          "Comedy",
+          "Psychological",
+          "Romance"
+        ],
+        "platform": "Crunchyroll"
+      }
+    ]
+  },
+  {
+    "category": "⭐ Top Rated Masterpieces",
+    "description": "Critically acclaimed stories that will melt your heart.",
+    "items": [
+      {
+        "id": "171627",
+        "title": "Chainsaw Man – The Movie: Reze Arc",
+        "vibe": "Theatrical follow-up to Chainsaw Man.\nDenji became “Chainsaw Man”, a boy with a devil’s heart, and is now part of Special Division 4’s devil hunters. After a date with Makima, the woman of his dreams, Denji takes shelter from the rain.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 90%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx171627-ZN9D7P46yHnw.png",
+        "tags": [
+          "Action",
+          "Drama",
+          "Horror"
+        ],
+        "platform": "Various Platforms"
+      },
+      {
+        "id": "124194",
+        "title": "Fruits Basket The Final Season",
+        "vibe": "After last season’s revelations, the Soma family moves forward, but the emotional chains that bind them are not easily broken. Unable to admit why she wants the cure, Tohru wrestles with the truth, aware that time is running out for someone close.\n\nAnd a secret still lurks that could break another’s heart.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 89%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx124194-TJlqMMR7BGn9.jpg",
+        "tags": [
+          "Comedy",
+          "Drama",
+          "Psychological"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "21745",
+        "title": "Owarimonogatari Second Season",
+        "vibe": "Third and “Final Season” of the Monogatari Series, part 4/5. Contains the arcs Mayoi Hell, Hitagi Rendezvous, and Ougi Dark from the Owarimonogatari light novels.\n\nKoyomi wakes up to see Mayoi Hachikuji before him, the girl who supposedly had gone to the afterlife.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 89%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21745-VrhhJjZNdBXV.png",
+        "tags": [
+          "Comedy",
+          "Mystery",
+          "Psychological"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "125367",
+        "title": "Kaguya-sama: Love is War -Ultra Romantic-",
+        "vibe": "The elite members of Shuchiin Academy's student council continue their competitive day-to-day antics. Council president Miyuki Shirogane clashes daily against vice-president Kaguya Shinomiya, each fighting tooth and nail to trick the other into confessing their romantic love.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 89%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx125367-1yuq9NFcQuLI.png",
+        "tags": [
+          "Comedy",
+          "Psychological",
+          "Romance"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "20954",
+        "title": "A Silent Voice",
+        "vibe": "After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its back on him.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 88%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20954-sYRfE5jQRtSB.jpg",
+        "tags": [
+          "Drama",
+          "Romance",
+          "Slice of Life"
+        ],
+        "platform": "Various Platforms"
+      },
+      {
+        "id": "17074",
+        "title": "Monogatari Series Second Season",
+        "vibe": "Second season of the Monogatari Series, part 1/2. Contains the arcs Tsubasa Tiger, Mayoi Jiangshi, Nadeko Medusa, Shinobu Time, and Hitagi End, from the Nekomonogatari White, Kabukimonogatari, Otorimonogatari, Onimonogatari and Koimonogatari light novels, respectively.\n\nThese stories take place after the end of the summer vacation when the apparition of the bee had left and the apparition of the phoenix avoided any consequences… Now that Koyomi Araragi and the girls were entering their new school terms, they were once again about to encounter supernatural beings…but this time, they may not be so easy to deal with.\n\nTsubasa Hanekawa, Mayoi Hachikuji, Nadeko Sengoku, Shinobu Oshino, and finally Hitagi Senjougahara.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 88%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx17074-xMhVAZsEDH66.png",
+        "tags": [
+          "Comedy",
+          "Drama",
+          "Mystery"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "4181",
+        "title": "Clannad: After Story",
+        "vibe": "A few months have passed since Tomoya declared his love to Nagisa, and his life keeps moving forward as he continues to meet a variety of new people, expanding his world in the process. While Tomoya's world continues to expand, his and Nagisa's relationship is entering a new phase, and neither of them is quite sure where it will take them.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 87%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx4181-zUKE7BZC62OF.png",
+        "tags": [
+          "Drama",
+          "Romance",
+          "Slice of Life"
+        ],
+        "platform": "Various Platforms"
+      },
+      {
+        "id": "151384",
+        "title": "Kaguya-sama: Love is War -The First Kiss That Never Ends-",
+        "vibe": "Shuchiin Academy’s student council room: the place where Student Council Vice President Kaguya Shinomiya and President Miyuki Shirogane met. After a long battle in love, these two geniuses communicated their feelings and, at the Hoshin Festival, had their very first kiss.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 87%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx151384-gv0q8wOE6D58.jpg",
+        "tags": [
+          "Comedy",
+          "Psychological",
+          "Romance"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "162314",
+        "title": "Attack on Titan Final Season THE FINAL CHAPTERS Special 2",
+        "vibe": "Eren, as the Founding Titan, advances on Fort Salta with countless other Titans. Appearing before the refugees, who stand on the brink of despair, are Mikasa, Armin, Jean, Conny, Reiner, Pieck, and Levi, who narrowly escaped from the rumbling.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 87%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx162314-qIWdAAFtvY8J.jpg",
+        "tags": [
+          "Action",
+          "Drama",
+          "Fantasy"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "166216",
+        "title": "The Dangers in My Heart Season 2",
+        "vibe": "The second season of Boku no Kokoro no Yabai Yatsu.\n\nAfter an eventful winter break, Kyoutarou Ichikawa and Anna Yamada reunite with a stronger bond. They continue to grow in their own ways, with Yamada taking on more challenging photoshoots and Ichikawa maturing both physically and emotionally as he tackles his affections for Yamada.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 87%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166216-vCMkF4e3x5FB.jpg",
+        "tags": [
+          "Comedy",
+          "Romance",
+          "Slice of Life"
+        ],
+        "platform": "Various Platforms"
+      },
+      {
+        "id": "21519",
+        "title": "Your Name.",
+        "vibe": "Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city, Taki Tachibana lives a busy life as a high school student while juggling his part-time job and hopes for a future in architecture.\n\nOne day, Mitsuha awakens in a room that is not her own and suddenly finds herself living the dream life in Tokyo—but in Taki's body! Elsewhere, Taki finds himself living Mitsuha's life in the humble countryside.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 85%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-SUo3ZQuCbYhJ.png",
+        "tags": [
+          "Drama",
+          "Romance",
+          "Supernatural"
+        ],
+        "platform": "Crunchyroll"
+      },
+      {
+        "id": "112641",
+        "title": "Kaguya-sama: Love is War?",
+        "vibe": "After a slow but eventful summer vacation, Shuchiin Academy's second term is now starting in full force. As August transitions into September, Miyuki Shirogane's birthday looms ever closer, leaving Kaguya Shinomiya in a serious predicament as to how to celebrate it.",
+        "highlight": {
+          "label": "Masterpiece",
+          "content": "Highly Rated: 85%"
+        },
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112641-zoGC8d6FaPXU.jpg",
+        "tags": [
+          "Comedy",
+          "Psychological",
+          "Romance"
+        ],
+        "platform": "Crunchyroll"
+      }
+    ]
+  }
+]

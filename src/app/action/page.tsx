@@ -36,7 +36,7 @@ export default async function ActionPage() {
                 </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(450px, 1fr))', gap: '2rem' }}>
+            <div style={{ columns: '320px', columnGap: '2rem' }}>
                 {animeList.map((anime, index) => (
                     <ActionCard key={anime.id} anime={anime} index={index} />
                 ))}

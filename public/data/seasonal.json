@@ -1,0 +1,132 @@
+[
+  {
+    "season": "Winter 2026 (Currently Airing / Ending Soon)",
+    "description": "Weekly episode reviews, \"Explained\" articles, and Power Rankings.",
+    "items": [
+      {
+        "id": 1,
+        "title": "Jujutsu Kaisen: Season 3 (The Culling Game)",
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx172463-LnXqHzt74SJL.jpg",
+        "details": "[AIRING NOW] (Started Jan 8, 2026)",
+        "studio": "MAPPA",
+        "hype": "The \"Culling Game\" is a battle royale arc introducing highly complex powers. Users are actively searching for \"Culling Game rules explained\" and \"New character abilities.\"",
+        "contentAngle": "\"Weekly Death Watch\" (Who survives?) and Power System breakdowns.",
+        "tags": [
+          "#JJKSeason3",
+          "#CullingGame",
+          "#GojoSatoru",
+          "#DomainExpansion"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Frieren: Beyond Journey’s End (Season 2)",
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx154587-qQTzQnEJJ3oB.jpg",
+        "details": "[AIRING NOW] (Started Jan 16, 2026)",
+        "studio": "Madhouse",
+        "hype": "The first season was a global phenomenon. Season 2 continues the \"First Class Mage\" journey. It dominates \"slice of life\" and \"fantasy\" discussions.",
+        "contentAngle": "\"Cozy\" reviews vs. \"Lore Deep Dives\" (analyzing the magic system).",
+        "tags": [
+          "#FrierenS2",
+          "#Fern",
+          "#Stark",
+          "#FantasyAnime"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Fire Force (Season 3 - Part 2 / Finale)",
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx105310-2PKUvoaA6fTn.jpg",
+        "details": "[AIRING NOW] (Started Jan 9, 2026)",
+        "studio": "David Production",
+        "hype": "This is the grand finale. The visuals are psychedelic and high-octane.",
+        "contentAngle": "Connection to Soul Eater (fan theories are huge here) and the final \"Great Cataclysm.\"",
+        "tags": [
+          "#FireForceSeason3",
+          "#Shinra",
+          "#SoulEaterConnection"
+        ]
+      }
+    ]
+  },
+  {
+    "season": "Spring 2026 (April - June)",
+    "description": "\"Preview\" articles in March, \"First Impressions\" in April.",
+    "items": [
+      {
+        "id": 1,
+        "title": "One Piece: Elbaph Arc",
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21-ELSYx3yMPcKM.jpg",
+        "details": "April 5, 2026 (Confirmed)",
+        "studio": "Toei Animation",
+        "hype": "The most anticipated arc in decades. The Straw Hats finally reach the land of Giants.",
+        "contentAngle": "\"Elbaph Lore Drops\" (Shanks, Giants, Void Century). This will be the #1 traffic driver of Spring.",
+        "tags": [
+          "#OnePieceElbaph",
+          "#LuffyVsShanks",
+          "#UsoppBraveWarrior"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Dorohedoro (Season 2)",
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx105228-I4xr84QS9Pvk.jpg",
+        "details": "April 1, 2026",
+        "studio": "MAPPA",
+        "hype": "A cult classic with a unique \"grimy\" aesthetic that fits your \"Dark/Frost\" website theme perfectly.",
+        "contentAngle": "\"Why you need to watch Dorohedoro\" (Recommendation lists).",
+        "tags": [
+          "#DorohedoroS2",
+          "#Kaiman",
+          "#DarkFantasy",
+          "#Seinen"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Witch Hat Atelier",
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx147105-QrKDkM4yqp7f.jpg"
+      }
+    ]
+  },
+  {
+    "season": "Release Date: Spring 2026 (Anticipated)",
+    "description": "",
+    "items": []
+  },
+  {
+    "season": "Summer 2026 (July - September)",
+    "description": "\"Summer Blockbuster\" coverage.",
+    "items": [
+      {
+        "id": 1,
+        "title": "Bleach: Thousand-Year Blood War (Part 4 - The Calamity)",
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116674-p3zK4PUX2Aag.jpg",
+        "details": "July 2026 (Confirmed)",
+        "studio": "Pierrot Films",
+        "hype": "The absolute finale of Bleach.",
+        "contentAngle": "\"The End of an Era\" – Recap of Ichigo’s 20-year journey.",
+        "tags": [
+          "#BleachFinale",
+          "#TYBWPart4",
+          "#IchigoKurosaki",
+          "#Bankai"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "The Detective Is Already Dead (Season 2)",
+        "imagePath": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx128712-AlVwHbrugvj6.jpg",
+        "details": "The first movie released July 2025. Fans are expecting news on Part 2 by late 2026.",
+        "studio": "ENGI",
+        "hype": "Visually stunning character designs (Siesta) drive massive social media engagement (Pinterest/Instagram traffic).",
+        "contentAngle": "\"Trilogy Release Schedule Predictions.\"",
+        "tags": [
+          "#TanmoshiS2",
+          "#Siesta",
+          "#MysteryAnime"
+        ]
+      }
+    ]
+  }
+]

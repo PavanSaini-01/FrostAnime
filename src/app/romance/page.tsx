@@ -54,7 +54,7 @@ export default async function RomancePage() {
                             )}
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '2rem' }}>
+                        <div style={{ columns: '320px', columnGap: '2rem' }}>
                             {group.items.map((anime, index) => (
                                 <RomanceCard key={anime.id} anime={anime} index={index + (groupIndex * 2)} />
                             ))}

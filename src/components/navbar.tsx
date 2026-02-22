@@ -15,21 +15,22 @@ export function Navbar() {
     const [isScrolled, setIsScrolled] = React.useState(false)
     const [hoveredPath, setHoveredPath] = React.useState<string | null>(null)
 
+    // Reset scroll state on every route change, then re-sync immediately
+    React.useEffect(() => {
+        setIsScrolled(window.scrollY > 20)
+    }, [pathname])
+
     React.useEffect(() => {
         let lastScrollTime = 0;
         const handleScroll = () => {
             const now = Date.now();
-            if (now - lastScrollTime < 100) return; // Throttle to 100ms
-
+            if (now - lastScrollTime < 100) return;
             lastScrollTime = now;
-            const scrolled = window.scrollY > 20;
-            if (isScrolled !== scrolled) {
-                setIsScrolled(scrolled)
-            }
+            setIsScrolled(window.scrollY > 20);
         }
         window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
-    }, [isScrolled])
+    }, [])
 
     return (
         <motion.header

@@ -4,6 +4,8 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { AnimeRecommendation } from "@/lib/get-anime-data"
+import { BookmarkButton } from "@/components/bookmark-button"
+import { AniListMedia } from "@/lib/anilist"
 
 interface AnimeCardProps {
     anime: AnimeRecommendation
@@ -56,6 +58,29 @@ export function AnimeCard({ anime, index }: AnimeCardProps) {
                         <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>No Image</span>
                     )}
                 </motion.div>
+
+                {/* Bookmark Button */}
+                <div style={{
+                    position: 'absolute',
+                    top: '0.75rem',
+                    right: '0.75rem',
+                    zIndex: 20
+                }}>
+                    <BookmarkButton
+                        anime={{
+                            id: anime.id,
+                            title: { english: anime.title },
+                            coverImage: { large: anime.imagePath, extraLarge: anime.imagePath },
+                            genres: anime.genre.split(',').map(g => g.trim()),
+                            description: anime.description,
+                        } as unknown as AniListMedia}
+                        style={{
+                            padding: '0.5rem',
+                            borderRadius: '50%',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                        }}
+                    />
+                </div>
 
                 <div style={{
                     position: 'absolute',

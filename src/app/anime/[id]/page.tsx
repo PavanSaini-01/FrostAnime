@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Star, Play, Calendar, TrendingUp, MonitorPlay } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import { BookmarkButton } from '@/components/bookmark-button';
 
 interface AnimePageProps {
     params: Promise<{ id: string }>;
@@ -131,7 +132,7 @@ export default async function AnimePage(props: AnimePageProps) {
                             </h2>
                         )}
 
-                        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+                        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
                             {anime.genres.map((g, i) => (
                                 <span key={i} className="glass" style={{
                                     fontSize: '0.875rem',
@@ -144,6 +145,18 @@ export default async function AnimePage(props: AnimePageProps) {
                                     {g}
                                 </span>
                             ))}
+                        </div>
+
+                        <div style={{ marginBottom: '2.5rem' }}>
+                            <BookmarkButton
+                                anime={anime}
+                                showText={true}
+                                style={{
+                                    padding: '0.75rem 1.5rem',
+                                    borderRadius: '2rem',
+                                    fontSize: '1rem'
+                                }}
+                            />
                         </div>
 
                         <div className="glass" style={{ padding: '2rem', borderRadius: '1.5rem', marginBottom: '2rem' }}>

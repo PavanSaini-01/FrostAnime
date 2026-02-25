@@ -213,3 +213,72 @@ query ($id: Int) {
   }
 }
 `;
+
+export interface AiringScheduleNode {
+  id: number;
+  airingAt: number;
+  timeUntilAiring: number;
+  episode: number;
+  media: AniListMedia;
+}
+
+export interface AiringScheduleResponse {
+  Page: {
+    pageInfo: {
+      total: number;
+      currentPage: number;
+      lastPage: number;
+      hasNextPage: boolean;
+      perPage: number;
+    };
+    airingSchedules: AiringScheduleNode[];
+  };
+}
+
+export const AIRING_SCHEDULE_QUERY = `
+query ($page: Int, $perPage: Int, $airingAt_greater: Int, $airingAt_lesser: Int) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      currentPage
+      lastPage
+      hasNextPage
+      perPage
+    }
+    airingSchedules(
+      airingAt_greater: $airingAt_greater, 
+      airingAt_lesser: $airingAt_lesser, 
+      sort: TIME
+    ) {
+      id
+      airingAt
+      timeUntilAiring
+      episode
+      media {
+        id
+        title {
+          romaji
+          english
+          native
+        }
+        description
+        coverImage {
+          extraLarge
+          large
+          medium
+          color
+        }
+        bannerImage
+        genres
+        averageScore
+        popularity
+        trending
+        status
+        season
+        seasonYear
+        format
+      }
+    }
+  }
+}
+`;

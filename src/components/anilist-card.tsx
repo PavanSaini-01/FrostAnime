@@ -4,7 +4,8 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { AniListMedia } from "@/lib/anilist"
-import { Star } from "lucide-react"
+import { Star, Bookmark } from "lucide-react"
+import { useWatchlist } from '@/lib/watchlist-context';
 
 interface AniListCardProps {
     anime: AniListMedia
@@ -12,7 +13,21 @@ interface AniListCardProps {
 }
 
 export function AniListCard({ anime, index }: AniListCardProps) {
-    const title = anime.title.english || anime.title.romaji || "Unknown Title";
+    const title = anime.title.english || anime.title.romaji;
+    const accentColor = anime.coverImage.color || 'var(--secondary)';
+
+    const { watchlist, addToWatchlist, removeFromWatchlist, isInWatchlist } = useWatchlist();
+    const isSaved = isInWatchlist(anime.id);
+
+    const handleBookmark = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isSaved) {
+            removeFromWatchlist(anime.id);
+        } else {
+            addToWatchlist(anime);
+        }
+    };
 
     return (
         <Link href={`/anime/${anime.id}`} style={{ textDecoration: 'none', display: 'block' }}>
@@ -49,12 +64,13 @@ export function AniListCard({ anime, index }: AniListCardProps) {
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.5 }}
                     >
-                        {anime.coverImage.extraLarge ? (
+                        {anime.coverImage.large ? (
                             <Image
-                                src={anime.coverImage.extraLarge}
+                                src={anime.coverImage.large}
                                 alt={title}
                                 fill
                                 style={{ objectFit: 'cover' }}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 unoptimized
                             />
                         ) : (
@@ -62,6 +78,8 @@ export function AniListCard({ anime, index }: AniListCardProps) {
                                 <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>No Image</span>
                             </div>
                         )}
+
+
 
                         {/* Overlay gradient */}
                         <div style={{
@@ -71,6 +89,41 @@ export function AniListCard({ anime, index }: AniListCardProps) {
                             zIndex: 1
                         }} />
                     </motion.div>
+
+                    {/* Bookmark Ribbon */}
+                    <button
+                        onClick={handleBookmark}
+                        style={{
+                            position: 'absolute',
+                            top: '-8px',
+                            right: '16px',
+                            zIndex: 20,
+                            background: isSaved ? accentColor : 'rgba(0,0,0,0.6)',
+                            border: 'none',
+                            padding: '12px 8px 16px',
+                            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 8px), 0 100%)',
+                            cursor: 'pointer',
+                            color: 'white',
+                            transition: 'all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                            transformOrigin: 'top center',
+                            opacity: isSaved ? 1 : 0.7,
+                            backdropFilter: isSaved ? 'none' : 'blur(4px)',
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.opacity = '1';
+                            e.currentTarget.style.transform = 'scale(1.05)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.opacity = isSaved ? '1' : '0.7';
+                            e.currentTarget.style.transform = 'scale(1)';
+                        }}
+                    >
+                        <Bookmark
+                            size={18}
+                            fill={isSaved ? "currentColor" : "none"}
+                            strokeWidth={isSaved ? 2 : 2.5}
+                        />
+                    </button>
 
                     {/* Score badge directly on image */}
                     {anime.averageScore && (
@@ -130,7 +183,7 @@ export function AniListCard({ anime, index }: AniListCardProps) {
                             {anime.format} • {anime.episodes ? `${anime.episodes} eps` : 'Ongoing'}
                         </span>
                         <span style={{ fontSize: '0.7rem', opacity: 0.6, textTransform: 'capitalize' }}>
-                            {anime.status.toLowerCase()}
+                            {anime.status?.toLowerCase() || ''}
                         </span>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
     "category": "🏆 The Gold Standard",
     "items": [
       {
-        "id": "19815",
+        "id": 19815,
         "title": "No Game, No Life",
         "vibe": "Actually has a really good story.",
         "plot": "Bored with life and considering the real world to be just a “crappy game,” savvy sibling shut-ins Sora and Shiro have withdrawn into their own fantasy world filled with video games. \n\nHowever, one day they find themselves summoned to another world by a boy who calls himself “God,” their abilities are about to be put to the ultimate test! Now not only their fates — but the fate of all of humanity — will be decided by a series of games that may just be the hardest these super-geniuses have ever faced!\n\n(Source: Sentai Filmworks, edited).",
@@ -11,7 +11,7 @@
         "platform": "Crunchyroll"
       },
       {
-        "id": "20789",
+        "id": 20789,
         "title": "The Seven Deadly Sins",
         "vibe": "High tension and fan service.",
         "plot": "When they were accused of trying to overthrow the monarchy, the feared warriors the Seven Deadly Sins were sent into exile. Princess Elizabeth discovers the truth - the Sins were framed by the king's guard, the Holy Knights - too late to prevent them from assassinating her father and seizing the throne!\nNow the princess is on the run, seeking the Sins to help her reclaim the kingdom.",
@@ -19,7 +19,7 @@
         "platform": "Various Platforms"
       },
       {
-        "id": "21202",
+        "id": 21202,
         "title": "KONOSUBA -God's blessing on this wonderful world!",
         "vibe": "Actually has a really good story.",
         "plot": "Kazuma Satou decides that today is the day to get out of the house for a bit. Since he dies, pointlessly, it's clearly a bad choice.",
@@ -27,7 +27,7 @@
         "platform": "Crunchyroll"
       },
       {
-        "id": "108465",
+        "id": 108465,
         "title": "Mushoku Tensei: Jobless Reincarnation",
         "vibe": "Actually has a really good story.",
         "plot": "When a 34-year-old underachiever gets run over by a bus, his story doesn’t end there. Reincarnated in a new world as an infant, Rudeus will seize every opportunity to live the life he’s always wanted.",
@@ -35,7 +35,7 @@
         "platform": "Crunchyroll"
       },
       {
-        "id": "18679",
+        "id": 18679,
         "title": "Kill la Kill",
         "vibe": "Actually has a really good story.",
         "plot": "After the murder of her father, Ryuuko Matoi has been wandering the land in search of his killer. Following her only lead—the missing half of his invention, the Scissor Blade—she arrives at the prestigious Honnouji Academy, a high school unlike any other.",
@@ -43,7 +43,7 @@
         "platform": "Crunchyroll"
       },
       {
-        "id": "20923",
+        "id": 20923,
         "title": "Food Wars!",
         "vibe": "Actually has a really good story.",
         "plot": "Ever since he was little, Souma Yukihira’s main goals have been to beat his father in a cooking contest and take over the family diner. That’s why, when his dad suddenly announces that he’s shutting the restaurant down and sending Souma to cooking school, Souma is shocked.",
@@ -56,7 +56,7 @@
     "category": "🃏 The Trending Wildcards",
     "items": [
       {
-        "id": "176276",
+        "id": 176276,
         "title": "Chained Soldier Season 2",
         "vibe": "High tension and fan service.",
         "plot": "The second season of Mato Seihei no Slave..",
@@ -64,7 +64,7 @@
         "platform": "Various Platforms"
       },
       {
-        "id": "192867",
+        "id": 192867,
         "title": "Does it Count if You Lose Your Innocence to an Android?",
         "vibe": "High tension and fan service.",
         "plot": "Office Lady Tsuda Akane, age 28, seems like she’s got it all together. Beautiful, brainy, and an indispensable office worker for a robotics manufacturer, Akane’s admired at work…because her colleagues can’t see her at home.",
@@ -72,7 +72,7 @@
         "platform": "Various Platforms"
       },
       {
-        "id": "204319",
+        "id": 204319,
         "title": "Ookii Onnanoko wa Suki desu ka?",
         "vibe": "High tension and fan service.",
         "plot": "Tachibana Souta jumps from one part-time job to the next, just coasting through life. He’s unremarkable except for being pretty short.",
@@ -80,7 +80,7 @@
         "platform": "Various Platforms"
       },
       {
-        "id": "154768",
+        "id": 154768,
         "title": "My Dress-Up Darling Season 2",
         "vibe": "Actually has a really good story.",
         "plot": "The second season of Sono Bisque Doll wa Koi wo Suru.\n\nWhen Marin Kitagawa and Wakana Gojo met, they grew close over their love for cosplay. Through interacting with classmates and making new cosplay friends, Marin and Wakana’s world keeps growing.",
@@ -88,7 +88,7 @@
         "platform": "Crunchyroll"
       },
       {
-        "id": "21202",
+        "id": 21202,
         "title": "KONOSUBA -God's blessing on this wonderful world!",
         "vibe": "Actually has a really good story.",
         "plot": "Kazuma Satou decides that today is the day to get out of the house for a bit. Since he dies, pointlessly, it's clearly a bad choice.",
@@ -96,7 +96,7 @@
         "platform": "Crunchyroll"
       },
       {
-        "id": "146065",
+        "id": 146065,
         "title": "Mushoku Tensei: Jobless Reincarnation Season 2",
         "vibe": "Actually has a really good story.",
         "plot": "After his relationship with Eris Boreas Greyrat reaches new heights, Rudeus Greyrat is ecstatic. Unfortunately, his joy is short-lived, as Eris suddenly abandons him to embark on her own journey.",

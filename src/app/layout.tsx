@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
+import { WatchlistProvider } from "@/lib/watchlist-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +20,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="data-theme"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <main className="container" style={{ minHeight: '100vh', paddingTop: '6rem', paddingBottom: '3rem' }}>
-            {children}
-          </main>
-        </ThemeProvider>
+        <WatchlistProvider>
+          <ThemeProvider
+            attribute="data-theme"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            <main className="container" style={{ minHeight: '100vh', paddingTop: '6rem', paddingBottom: '3rem' }}>
+              {children}
+            </main>
+          </ThemeProvider>
+        </WatchlistProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { Menu, Search } from "lucide-react"
@@ -80,11 +81,10 @@ export function Navbar() {
                     >
                         {[
                             { name: "Home", href: "/" },
+                            { name: "Calendar", href: "/calendar" },
+                            { name: "Roulette", href: "/roulette" },
+                            { name: "Watchlist", href: "/watchlist" },
                             { name: "Seasonal", href: "/seasonal" },
-                            { name: "Romance", href: "/romance" },
-                            { name: "Action", href: "/action" },
-                            { name: "Echi", href: "/echi" },
-                            { name: "Frozen", href: "/frozen" },
                             { name: "Blog", href: "/blog" }
                         ].map((item) => {
                             const isActive = pathname === item.href;

@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Heart, Sparkles, MessageCircleHeart } from 'lucide-react';
 import { RomanceAnime } from '@/lib/get-romance-anime';
+import { BookmarkButton } from '@/components/bookmark-button';
+import { AniListMedia } from '@/lib/anilist';
 
 interface RomanceCardProps {
     anime: RomanceAnime;
@@ -62,6 +64,29 @@ export function RomanceCard({ anime, index }: RomanceCardProps) {
                         <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>No Image</span>
                     )}
                 </motion.div>
+
+                {/* Bookmark Button */}
+                <div style={{
+                    position: 'absolute',
+                    top: '0.75rem',
+                    right: '0.75rem',
+                    zIndex: 20
+                }}>
+                    <BookmarkButton
+                        anime={{
+                            id: anime.id,
+                            title: { english: anime.title },
+                            coverImage: { large: anime.imagePath, extraLarge: anime.imagePath },
+                            genres: [],
+                            description: anime.vibe,
+                        } as unknown as AniListMedia}
+                        style={{
+                            padding: '0.5rem',
+                            borderRadius: '50%',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                        }}
+                    />
+                </div>
 
                 {/* Title Overlay */}
                 <div style={{

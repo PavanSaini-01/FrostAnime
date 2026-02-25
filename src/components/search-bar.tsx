@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { liveSearchAction } from '@/app/actions/search';
 import { AniListMedia } from '@/lib/anilist';
 import Image from 'next/image';
+import { BookmarkButton } from '@/components/bookmark-button';
 
 export function SearchBar() {
     const [query, setQuery] = useState('');
@@ -316,6 +317,20 @@ export function SearchBar() {
                                                         </span>
                                                     )}
                                                 </div>
+                                            </div>
+
+                                            {/* Bookmark Action */}
+                                            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
+                                                <BookmarkButton
+                                                    anime={anime}
+                                                    style={{
+                                                        padding: '0.4rem',
+                                                        borderRadius: '0.5rem',
+                                                        background: 'transparent',
+                                                        border: 'none',
+                                                        boxShadow: 'none'
+                                                    }}
+                                                />
                                             </div>
                                         </button>
                                     );

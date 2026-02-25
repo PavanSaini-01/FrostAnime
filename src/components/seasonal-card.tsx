@@ -5,6 +5,8 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { SeasonalAnimeItem } from "@/lib/get-seasonal-anime"
 import { Calendar, Building2, Flame, BookOpen } from "lucide-react"
+import { BookmarkButton } from "@/components/bookmark-button"
+import { AniListMedia } from "@/lib/anilist"
 
 // import { useRef } from "react"
 
@@ -61,7 +63,11 @@ export function SeasonalCard({ anime, index }: SeasonalCardProps) {
                     position: 'absolute',
                     top: '1rem',
                     left: '1rem',
-                    zIndex: 10
+                    right: '1rem',
+                    zIndex: 10,
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start'
                 }}>
                     <span className="glass" style={{
                         padding: '0.25rem 0.75rem',
@@ -71,10 +77,27 @@ export function SeasonalCard({ anime, index }: SeasonalCardProps) {
                         background: anime.details?.includes('AIRING') ? 'rgba(34, 197, 94, 0.8)' : 'rgba(59, 130, 246, 0.8)',
                         color: 'white',
                         backdropFilter: 'blur(4px)',
-                        border: 'none'
+                        border: 'none',
+                        height: 'fit-content'
                     }}>
                         {anime.details?.includes('AIRING') ? 'AIRING NOW' : 'UPCOMING'}
                     </span>
+
+                    <BookmarkButton
+                        anime={{
+                            id: anime.id,
+                            title: { english: anime.title },
+                            coverImage: { large: anime.imagePath, extraLarge: anime.imagePath },
+                            genres: anime.tags || [],
+                            description: anime.hype,
+                            status: anime.details,
+                        } as AniListMedia}
+                        style={{
+                            padding: '0.5rem',
+                            borderRadius: '50%',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                        }}
+                    />
                 </div>
 
                 {/* Title Overlay */}

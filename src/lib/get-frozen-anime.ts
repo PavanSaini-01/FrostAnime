@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export interface FrozenAnime {
-    id: string;
+    id: number;
     title: string;
     vibe: string;
     chill: string;

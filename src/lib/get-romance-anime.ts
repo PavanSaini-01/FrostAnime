@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export interface RomanceAnime {
-    id: string;
+    id: number;
     title: string;
     vibe: string;
     highlight: {

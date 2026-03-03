@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { WatchlistProvider } from "@/lib/watchlist-context";
+import { AuthProvider } from "@/components/auth-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,19 +21,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <WatchlistProvider>
-          <ThemeProvider
-            attribute="data-theme"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            <main className="container" style={{ minHeight: '100vh', paddingTop: '6rem', paddingBottom: '3rem' }}>
-              {children}
-            </main>
-          </ThemeProvider>
-        </WatchlistProvider>
+        <AuthProvider>
+          <WatchlistProvider>
+            <ThemeProvider
+              attribute="data-theme"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Navbar />
+              <main className="container" style={{ minHeight: '100vh', paddingTop: '6rem', paddingBottom: '3rem' }}>
+                {children}
+              </main>
+            </ThemeProvider>
+          </WatchlistProvider>
+        </AuthProvider>
       </body>
     </html>
   );

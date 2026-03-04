@@ -20,7 +20,21 @@ export function Navbar() {
     const [hoveredPath, setHoveredPath] = React.useState<string | null>(null)
     const [showProfileMenu, setShowProfileMenu] = React.useState(false)
     const [showAuthModal, setShowAuthModal] = React.useState(false)
+    const profileMenuRef = React.useRef<HTMLDivElement>(null)
     const supabase = createClient()
+
+    // Close profile dropdown when clicking outside
+    React.useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (profileMenuRef.current && !profileMenuRef.current.contains(e.target as Node)) {
+                setShowProfileMenu(false)
+            }
+        }
+        if (showProfileMenu) {
+            document.addEventListener("mousedown", handleClickOutside)
+        }
+        return () => document.removeEventListener("mousedown", handleClickOutside)
+    }, [showProfileMenu])
 
     // Reset scroll state on every route change, then re-sync immediately
     React.useEffect(() => {
@@ -39,7 +53,7 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
-    const isAnonymous = !user || user.is_anonymous;
+    const isAnonymous = !user || user.is_anonymous || !user.email;
 
     return (
         <motion.header
@@ -147,16 +161,37 @@ export function Navbar() {
 
                         {/* Auth Section */}
                         {isLoading ? (
-                            <div className="w-8 h-8 rounded-full bg-border animate-pulse" />
+                            <div className="animate-pulse" style={{ width: '2rem', height: '2rem', borderRadius: '9999px', backgroundColor: 'var(--border)' }} />
                         ) : !isAnonymous ? (
-                            <div className="relative">
+                            <div className="relative" ref={profileMenuRef}>
                                 {/* Profile Dropdown Trigger */}
                                 <button
                                     onClick={() => setShowProfileMenu(prev => !prev)}
-                                    className="p-1 rounded-full border border-border bg-card/50 hover:bg-card transition-colors flex items-center justify-center overflow-hidden"
-                                    style={{ width: '2.5rem', height: '2.5rem' }}
+                                    style={{
+                                        width: '2.5rem',
+                                        height: '2.5rem',
+                                        borderRadius: '9999px',
+                                        border: '2px solid var(--border)',
+                                        background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
+                                        cursor: 'pointer',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        overflow: 'hidden',
+                                        transition: 'border-color 0.3s, transform 0.2s',
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.borderColor = 'var(--primary)';
+                                        e.currentTarget.style.transform = 'scale(1.05)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.borderColor = 'var(--border)';
+                                        e.currentTarget.style.transform = 'scale(1)';
+                                    }}
                                 >
-                                    <User size={20} className="text-muted-foreground" />
+                                    <span style={{ color: 'white', fontWeight: 700, fontSize: '0.875rem' }}>
+                                        {user?.email?.charAt(0).toUpperCase() || 'U'}
+                                    </span>
                                 </button>
 
                                 {/* Dropdown Menu */}
@@ -165,14 +200,25 @@ export function Navbar() {
                                         <motion.div
                                             initial={{ opacity: 0, scale: 0.95, y: 10 }}
                                             animate={{ opacity: 1, scale: 1, y: 0 }}
-                                            exit={{ opacity: 0, scale: 1, y: 0 }}
-                                            transition={{ duration: 0.2 }}
-                                            className="absolute right-0 mt-2 w-56 glass border border-border rounded-xl shadow-2xl overflow-hidden"
+                                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                                            transition={{ duration: 0.15 }}
+                                            className="glass"
+                                            style={{
+                                                position: 'absolute',
+                                                right: 0,
+                                                marginTop: '0.5rem',
+                                                width: '16rem',
+                                                borderRadius: '0.75rem',
+                                                overflow: 'hidden',
+                                                border: '1px solid var(--border)',
+                                                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
+                                            }}
                                         >
-                                            <div className="p-4 border-b border-border">
-                                                <p className="text-xs text-muted-foreground truncate">{user.email}</p>
+                                            <div style={{ padding: '1rem', borderBottom: '1px solid var(--border)' }}>
+                                                <p style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--foreground)', margin: 0 }}>My Account</p>
+                                                <p style={{ fontSize: '0.75rem', color: 'var(--foreground)', opacity: 0.6, margin: '0.25rem 0 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user?.email}</p>
                                             </div>
-                                            <div className="p-2">
+                                            <div style={{ padding: '0.5rem' }}>
                                                 <button
                                                     onClick={async () => {
                                                         try {
@@ -183,7 +229,26 @@ export function Navbar() {
                                                             window.location.reload();
                                                         }
                                                     }}
-                                                    className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-500 hover:bg-red-500/10 rounded-lg transition-colors"
+                                                    style={{
+                                                        width: '100%',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        gap: '0.5rem',
+                                                        padding: '0.5rem 0.75rem',
+                                                        fontSize: '0.875rem',
+                                                        color: '#ef4444',
+                                                        background: 'transparent',
+                                                        border: 'none',
+                                                        borderRadius: '0.5rem',
+                                                        cursor: 'pointer',
+                                                        transition: 'background-color 0.2s',
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.backgroundColor = 'transparent';
+                                                    }}
                                                 >
                                                     <LogOut size={16} />
                                                     Sign Out
@@ -196,7 +261,21 @@ export function Navbar() {
                         ) : (
                             <button
                                 onClick={() => setShowAuthModal(true)}
-                                className="px-5 py-2 text-sm font-semibold rounded-full bg-white text-black hover:scale-105 active:scale-95 transition-transform"
+                                style={{
+                                    padding: '0.5rem 1.25rem',
+                                    fontSize: '0.875rem',
+                                    fontWeight: 600,
+                                    borderRadius: '9999px',
+                                    backgroundColor: 'white',
+                                    color: 'black',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    transition: 'transform 0.2s',
+                                }}
+                                onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                                onMouseDown={(e) => { e.currentTarget.style.transform = 'scale(0.95)'; }}
+                                onMouseUp={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
                             >
                                 Sign In
                             </button>

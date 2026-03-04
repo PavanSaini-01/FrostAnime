@@ -13,11 +13,11 @@ import { useUser } from "@/components/supabase-provider"
 import { createClient } from "@/lib/supabase/client"
 import { AuthModal } from "@/components/auth-modal"
 
+
+
 export function Navbar() {
-    const pathname = usePathname()
     const { user, isLoading } = useUser()
     const [isScrolled, setIsScrolled] = React.useState(false)
-    const [hoveredPath, setHoveredPath] = React.useState<string | null>(null)
     const [showProfileMenu, setShowProfileMenu] = React.useState(false)
     const [showAuthModal, setShowAuthModal] = React.useState(false)
     const profileMenuRef = React.useRef<HTMLDivElement>(null)
@@ -39,7 +39,7 @@ export function Navbar() {
     // Reset scroll state on every route change, then re-sync immediately
     React.useEffect(() => {
         setIsScrolled(window.scrollY > 20)
-    }, [pathname])
+    }, [])
 
     React.useEffect(() => {
         let lastScrollTime = 0;
@@ -93,66 +93,7 @@ export function Navbar() {
                         </span>
                     </Link>
 
-                    {/* Desktop Nav */}
-                    <nav
-                        className="hidden md:flex items-center gap-2 px-2 py-1.5 rounded-full border backdrop-blur-md"
-                        style={{
-                            backgroundColor: 'transparent',
-                            borderColor: 'var(--border)',
-                        }}
-                    >
-                        {[
-                            { name: "Home", href: "/" },
-                            { name: "Calendar", href: "/calendar" },
-                            { name: "Roulette", href: "/roulette" },
-                            { name: "Watchlist", href: "/watchlist" },
-                            { name: "Seasonal", href: "/seasonal" },
-                            { name: "Blog", href: "/blog" }
-                        ].map((item) => {
-                            const isActive = pathname === item.href;
-                            const isHovered = hoveredPath === item.href;
 
-                            return (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    className="relative px-4 py-2 text-sm font-medium transition-colors"
-                                    onMouseEnter={() => setHoveredPath(item.href)}
-                                    onMouseLeave={() => setHoveredPath(null)}
-                                    style={{
-                                        color: isActive ? 'white' : 'var(--foreground)',
-                                        opacity: isActive ? 1 : (isHovered ? 0.9 : 0.7),
-                                        textDecoration: 'none',
-                                    }}
-                                >
-                                    {isHovered && !isActive && (
-                                        <motion.div
-                                            layoutId="navbar-hover"
-                                            className="absolute inset-0 rounded-full"
-                                            style={{
-                                                backgroundColor: 'var(--border)',
-                                                opacity: 0.5,
-                                                zIndex: -1
-                                            }}
-                                            transition={{ type: "tween", duration: 0.2 }}
-                                        />
-                                    )}
-                                    {isActive && (
-                                        <motion.div
-                                            layoutId="navbar-active"
-                                            className="absolute inset-0 rounded-full"
-                                            style={{
-                                                backgroundColor: 'var(--secondary)',
-                                                zIndex: -1
-                                            }}
-                                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                        />
-                                    )}
-                                    <span style={{ position: 'relative', zIndex: 10 }}>{item.name}</span>
-                                </Link>
-                            )
-                        })}
-                    </nav>
 
                     {/* Actions */}
                     <div className="flex items-center gap-4">

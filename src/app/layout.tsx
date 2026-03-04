@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { WatchlistProvider } from "@/lib/watchlist-context";
-import { AuthProvider } from "@/components/auth-provider";
+import { SupabaseProvider } from "@/components/supabase-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <AuthProvider>
+        <SupabaseProvider>
           <WatchlistProvider>
             <ThemeProvider
               attribute="data-theme"
@@ -35,7 +35,7 @@ export default function RootLayout({
               </main>
             </ThemeProvider>
           </WatchlistProvider>
-        </AuthProvider>
+        </SupabaseProvider>
       </body>
     </html>
   );

@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -8,16 +7,20 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { Menu, Search, User, LogOut } from "lucide-react"
 import { SearchBar } from "@/components/search-bar"
-import { useSession, signIn, signOut } from "next-auth/react"
-
 import { usePathname } from "next/navigation"
+
+import { useUser } from "@/components/supabase-provider"
+import { createClient } from "@/lib/supabase/client"
+import { AuthModal } from "@/components/auth-modal"
 
 export function Navbar() {
     const pathname = usePathname()
-    const { data: session, status } = useSession()
+    const { user, isLoading } = useUser()
     const [isScrolled, setIsScrolled] = React.useState(false)
     const [hoveredPath, setHoveredPath] = React.useState<string | null>(null)
     const [showProfileMenu, setShowProfileMenu] = React.useState(false)
+    const [showAuthModal, setShowAuthModal] = React.useState(false)
+    const supabase = createClient()
 
     // Reset scroll state on every route change, then re-sync immediately
     React.useEffect(() => {
@@ -35,6 +38,8 @@ export function Navbar() {
         window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
+
+    const isAnonymous = !user || user.is_anonymous;
 
     return (
         <motion.header
@@ -141,9 +146,9 @@ export function Navbar() {
                         <ThemeToggle />
 
                         {/* Auth Section */}
-                        {status === "loading" ? (
+                        {isLoading ? (
                             <div className="w-8 h-8 rounded-full bg-border animate-pulse" />
-                        ) : session ? (
+                        ) : !isAnonymous ? (
                             <div className="relative">
                                 {/* Profile Dropdown Trigger */}
                                 <button
@@ -151,16 +156,7 @@ export function Navbar() {
                                     className="p-1 rounded-full border border-border bg-card/50 hover:bg-card transition-colors flex items-center justify-center overflow-hidden"
                                     style={{ width: '2.5rem', height: '2.5rem' }}
                                 >
-                                    {session.user?.image ? (
-                                        <Image
-                                            src={session.user.image}
-                                            alt="Profile"
-                                            width={32} height={32}
-                                            className="rounded-full w-full h-full object-cover"
-                                        />
-                                    ) : (
-                                        <User size={20} className="text-muted-foreground" />
-                                    )}
+                                    <User size={20} className="text-muted-foreground" />
                                 </button>
 
                                 {/* Dropdown Menu */}
@@ -169,29 +165,21 @@ export function Navbar() {
                                         <motion.div
                                             initial={{ opacity: 0, scale: 0.95, y: 10 }}
                                             animate={{ opacity: 1, scale: 1, y: 0 }}
-                                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                                            exit={{ opacity: 0, scale: 1, y: 0 }}
                                             transition={{ duration: 0.2 }}
                                             className="absolute right-0 mt-2 w-56 glass border border-border rounded-xl shadow-2xl overflow-hidden"
                                         >
                                             <div className="p-4 border-b border-border">
-                                                <p className="font-semibold text-sm truncate">{session.user?.name}</p>
-                                                <p className="text-xs text-muted-foreground truncate">{session.user?.email}</p>
+                                                <p className="text-xs text-muted-foreground truncate">{user.email}</p>
                                             </div>
                                             <div className="p-2">
                                                 <button
                                                     onClick={async () => {
                                                         try {
-                                                            // Clear local storage watchlist to be safe
                                                             localStorage.removeItem('frost-watchlist');
-
-                                                            // Try standard NextAuth signout
-                                                            await signOut({ redirect: false });
-
-                                                            // Hard reload to flush cached NextAuth state
+                                                            await supabase.auth.signOut();
                                                             window.location.reload();
                                                         } catch (e) {
-                                                            // If offline, NextAuth signOut throws/fails.
-                                                            // Force reload anyway to flush local state as much as possible
                                                             window.location.reload();
                                                         }
                                                     }}
@@ -207,7 +195,7 @@ export function Navbar() {
                             </div>
                         ) : (
                             <button
-                                onClick={() => signIn("google")}
+                                onClick={() => setShowAuthModal(true)}
                                 className="px-5 py-2 text-sm font-semibold rounded-full bg-white text-black hover:scale-105 active:scale-95 transition-transform"
                             >
                                 Sign In
@@ -220,6 +208,8 @@ export function Navbar() {
                     </div>
                 </div>
             </div>
+
+            <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
         </motion.header>
     )
 }

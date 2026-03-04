@@ -2,23 +2,8 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { AniListMedia } from '@/lib/anilist';
-import { useSession } from 'next-auth/react';
-import { createClient } from '@supabase/supabase-js';
-
-// Initialize a helper to create an authenticated Supabase client
-const getSupabaseClient = (accessToken?: string) => {
-    return createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-        {
-            global: {
-                headers: accessToken ? {
-                    Authorization: `Bearer ${accessToken}`
-                } : {}
-            }
-        }
-    );
-};
+import { useUser } from '@/components/supabase-provider';
+import { createClient } from '@/lib/supabase/client';
 
 interface WatchlistContextType {
     watchlist: AniListMedia[];
@@ -31,12 +16,14 @@ interface WatchlistContextType {
 const WatchlistContext = createContext<WatchlistContextType | undefined>(undefined);
 
 export function WatchlistProvider({ children }: { children: React.ReactNode }) {
-    const { data: session, status } = useSession();
+    const { user, isLoading: isUserLoading } = useUser();
+    const supabase = createClient();
+
     const [watchlist, setWatchlist] = useState<AniListMedia[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
     const [isSyncing, setIsSyncing] = useState(false);
 
-    // 1. Initial Load (Local Storage)
+    // 1. Initial Load (Local Storage fallback)
     useEffect(() => {
         const saved = localStorage.getItem('frost-watchlist');
         if (saved) {
@@ -49,28 +36,31 @@ export function WatchlistProvider({ children }: { children: React.ReactNode }) {
         setIsLoaded(true);
     }, []);
 
-    // 2. Sync to Cloud when Session Loads
+    // 2. Sync to Cloud when User Loads (Both Real and Anonymous users)
     useEffect(() => {
-        async function syncWithCloud() {
-            if (status !== "authenticated" || !session?.user || !isLoaded) return;
-            setIsSyncing(true);
+        let isMounted = true;
 
-            const userId = (session.user as any).id;
-            const accessToken = (session as any).supabaseAccessToken;
-            const supabase = getSupabaseClient(accessToken);
+        async function syncWithCloud() {
+            if (isUserLoading || !user || !isLoaded) return;
 
             try {
-                // Fetch cloud data
+                setIsSyncing(true);
+
+                // Fetch cloud data using our native configured client
                 const { data, error } = await supabase
                     .from('watchlists')
                     .select('saved_anime')
-                    .eq('user_id', userId)
+                    .eq('user_id', user.id)
                     .single();
+
+                if (error && error.code !== 'PGRST116') {
+                    console.error("Error fetching cloud watchlist:", error);
+                }
 
                 let cloudList: AniListMedia[] = data?.saved_anime || [];
 
                 // Merge Local Data with Cloud Data (Deduplicate by ID)
-                const localList = watchlist; // Currently holds local storage data
+                const localList = watchlist;
                 const map = new Map<number, AniListMedia>();
 
                 cloudList.forEach(anime => map.set(anime.id, anime));
@@ -78,50 +68,50 @@ export function WatchlistProvider({ children }: { children: React.ReactNode }) {
 
                 const mergedList = Array.from(map.values());
 
-                // If local had items not in cloud, or cloud was empty but local had items, update the cloud table
+                // Auto-upsert if we have mixed local data
                 if (mergedList.length > cloudList.length || (!data && mergedList.length > 0)) {
                     await supabase
                         .from('watchlists')
-                        .upsert({ user_id: userId, saved_anime: mergedList }, { onConflict: 'user_id' });
+                        .upsert({ user_id: user.id, saved_anime: mergedList }, { onConflict: 'user_id' });
                 }
 
-                // Update state and clear local storage since cloud is true source now
-                setWatchlist(mergedList);
+                if (isMounted) {
+                    setWatchlist(mergedList);
+                    // Standardize local storage just in case they go offline later
+                    localStorage.setItem('frost-watchlist', JSON.stringify(mergedList));
+                }
 
             } catch (error) {
                 console.error("Error syncing watchlist: ", error);
             } finally {
-                setIsSyncing(false);
+                if (isMounted) setIsSyncing(false);
             }
         }
 
         syncWithCloud();
-    }, [status, isLoaded]); // Run once when auth status resolves and local load is done
+
+        return () => { isMounted = false; };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isUserLoading, user?.id, isLoaded]);
 
     // 3. Keep Local Storage & Cloud updated on changes
     useEffect(() => {
-        if (!isLoaded || isSyncing) return; // Don't wipe local storage during initial load or cloud merge
+        // Skip updating backends on the initial cloud merge
+        if (!isLoaded || isSyncing) return;
 
-        // Only save to local storage if NOT logged in (Cloud users don't need local storage)
-        if (status === "unauthenticated") {
-            localStorage.setItem('frost-watchlist', JSON.stringify(watchlist));
-        }
+        // Always save to local storage as fallback
+        localStorage.setItem('frost-watchlist', JSON.stringify(watchlist));
 
-        // Save to cloud if logged in
-        if (status === "authenticated" && session?.user) {
-            const userId = (session.user as any).id;
-            const accessToken = (session as any).supabaseAccessToken;
-            const supabase = getSupabaseClient(accessToken);
-
-            // Debounce or fire and forget
+        // Save to cloud if user exists (anonymous or permanent)
+        if (user) {
             supabase
                 .from('watchlists')
-                .upsert({ user_id: userId, saved_anime: watchlist }, { onConflict: 'user_id' })
+                .upsert({ user_id: user.id, saved_anime: watchlist }, { onConflict: 'user_id' })
                 .then(({ error }: { error: any }) => {
                     if (error) console.error("Cloud update failed:", error);
                 });
         }
-    }, [watchlist.length, isLoaded, status, isSyncing]);
+    }, [watchlist, isLoaded, isSyncing, user, supabase]);
 
     const addToWatchlist = (anime: AniListMedia) => {
         setWatchlist(prev => {

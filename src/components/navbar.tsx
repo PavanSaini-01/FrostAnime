@@ -13,21 +13,6 @@ import { useUser } from "@/components/supabase-provider"
 import { createClient } from "@/lib/supabase/client"
 import { AuthModal } from "@/components/auth-modal"
 
-const FEATURE_LINKS = [
-    { name: "Home", href: "/" },
-    { name: "Calendar", href: "/calendar" },
-    { name: "Roulette", href: "/roulette" },
-    { name: "Watchlist", href: "/watchlist" },
-    { name: "Seasonal", href: "/seasonal" },
-    { name: "Blog", href: "/blog" }
-];
-
-const CATEGORY_LINKS = [
-    { name: "Action", href: "/action" },
-    { name: "Romance", href: "/romance" },
-    { name: "Ecchi", href: "/echi" },
-];
-
 export function Navbar() {
     const pathname = usePathname()
     const { user, isLoading } = useUser()
@@ -69,10 +54,6 @@ export function Navbar() {
     }, [])
 
     const isAnonymous = !user || user.is_anonymous || !user.email;
-
-    const isCategoryMode = CATEGORY_LINKS.some(link => pathname === link.href) || pathname?.startsWith('/category');
-    const primaryLinks = isCategoryMode ? CATEGORY_LINKS : FEATURE_LINKS;
-    const secondaryLinks = isCategoryMode ? FEATURE_LINKS : CATEGORY_LINKS;
 
     return (
         <motion.header
@@ -120,27 +101,33 @@ export function Navbar() {
                             borderColor: 'var(--border)',
                         }}
                     >
-                        {primaryLinks.map((item) => {
+                        {[
+                            { name: "Home", href: "/" },
+                            { name: "Calendar", href: "/calendar" },
+                            { name: "Roulette", href: "/roulette" },
+                            { name: "Watchlist", href: "/watchlist" },
+                            { name: "Seasonal", href: "/seasonal" },
+                            { name: "Blog", href: "/blog" }
+                        ].map((item) => {
                             const isActive = pathname === item.href;
                             const isHovered = hoveredPath === item.href;
 
                             return (
                                 <Link
-                                    key={`primary-${item.name}`}
+                                    key={item.name}
                                     href={item.href}
-                                    className="relative px-4 py-2 text-sm font-medium transition-colors rounded-full"
+                                    className="relative px-4 py-2 text-sm font-medium transition-colors"
                                     onMouseEnter={() => setHoveredPath(item.href)}
                                     onMouseLeave={() => setHoveredPath(null)}
                                     style={{
                                         color: isActive ? 'white' : 'var(--foreground)',
                                         opacity: isActive ? 1 : (isHovered ? 0.9 : 0.7),
                                         textDecoration: 'none',
-                                        whiteSpace: 'nowrap',
                                     }}
                                 >
                                     {isHovered && !isActive && (
                                         <motion.div
-                                            layoutId="primary-navbar-hover"
+                                            layoutId="navbar-hover"
                                             className="absolute inset-0 rounded-full"
                                             style={{
                                                 backgroundColor: 'var(--border)',
@@ -152,55 +139,7 @@ export function Navbar() {
                                     )}
                                     {isActive && (
                                         <motion.div
-                                            layoutId="primary-navbar-active"
-                                            className="absolute inset-0 rounded-full"
-                                            style={{
-                                                backgroundColor: 'var(--secondary)',
-                                                zIndex: -1
-                                            }}
-                                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                        />
-                                    )}
-                                    <span style={{ position: 'relative', zIndex: 10 }}>{item.name}</span>
-                                </Link>
-                            )
-                        })}
-
-                        <div style={{ width: '1px', height: '1.25rem', backgroundColor: 'var(--border)', margin: '0 0.5rem', opacity: 0.5 }} />
-
-                        {secondaryLinks.map((item) => {
-                            const isActive = pathname === item.href;
-                            const isHovered = hoveredPath === item.href;
-
-                            return (
-                                <Link
-                                    key={`secondary-${item.name}`}
-                                    href={item.href}
-                                    className="relative px-3 py-1.5 text-xs font-medium transition-colors rounded-full"
-                                    onMouseEnter={() => setHoveredPath(item.href)}
-                                    onMouseLeave={() => setHoveredPath(null)}
-                                    style={{
-                                        color: isActive ? 'white' : 'var(--foreground)',
-                                        opacity: isActive ? 1 : (isHovered ? 0.9 : 0.5),
-                                        textDecoration: 'none',
-                                        whiteSpace: 'nowrap',
-                                    }}
-                                >
-                                    {isHovered && !isActive && (
-                                        <motion.div
-                                            layoutId="secondary-navbar-hover"
-                                            className="absolute inset-0 rounded-full"
-                                            style={{
-                                                backgroundColor: 'var(--border)',
-                                                opacity: 0.5,
-                                                zIndex: -1
-                                            }}
-                                            transition={{ type: "tween", duration: 0.2 }}
-                                        />
-                                    )}
-                                    {isActive && (
-                                        <motion.div
-                                            layoutId="secondary-navbar-active"
+                                            layoutId="navbar-active"
                                             className="absolute inset-0 rounded-full"
                                             style={{
                                                 backgroundColor: 'var(--secondary)',

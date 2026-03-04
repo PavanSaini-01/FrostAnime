@@ -179,7 +179,22 @@ export function Navbar() {
                                             </div>
                                             <div className="p-2">
                                                 <button
-                                                    onClick={() => signOut()}
+                                                    onClick={async () => {
+                                                        try {
+                                                            // Clear local storage watchlist to be safe
+                                                            localStorage.removeItem('frost-watchlist');
+
+                                                            // Try standard NextAuth signout
+                                                            await signOut({ redirect: false });
+
+                                                            // Hard reload to flush cached NextAuth state
+                                                            window.location.reload();
+                                                        } catch (e) {
+                                                            // If offline, NextAuth signOut throws/fails.
+                                                            // Force reload anyway to flush local state as much as possible
+                                                            window.location.reload();
+                                                        }
+                                                    }}
                                                     className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-500 hover:bg-red-500/10 rounded-lg transition-colors"
                                                 >
                                                     <LogOut size={16} />

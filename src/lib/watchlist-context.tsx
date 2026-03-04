@@ -5,11 +5,20 @@ import { AniListMedia } from '@/lib/anilist';
 import { useSession } from 'next-auth/react';
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase client
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+// Initialize a helper to create an authenticated Supabase client
+const getSupabaseClient = (accessToken?: string) => {
+    return createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+            global: {
+                headers: accessToken ? {
+                    Authorization: `Bearer ${accessToken}`
+                } : {}
+            }
+        }
+    );
+};
 
 interface WatchlistContextType {
     watchlist: AniListMedia[];
@@ -47,6 +56,8 @@ export function WatchlistProvider({ children }: { children: React.ReactNode }) {
             setIsSyncing(true);
 
             const userId = (session.user as any).id;
+            const accessToken = (session as any).supabaseAccessToken;
+            const supabase = getSupabaseClient(accessToken);
 
             try {
                 // Fetch cloud data
@@ -99,12 +110,14 @@ export function WatchlistProvider({ children }: { children: React.ReactNode }) {
         // Save to cloud if logged in
         if (status === "authenticated" && session?.user) {
             const userId = (session.user as any).id;
+            const accessToken = (session as any).supabaseAccessToken;
+            const supabase = getSupabaseClient(accessToken);
 
             // Debounce or fire and forget
             supabase
                 .from('watchlists')
                 .upsert({ user_id: userId, saved_anime: watchlist }, { onConflict: 'user_id' })
-                .then(({ error }) => {
+                .then(({ error }: { error: any }) => {
                     if (error) console.error("Cloud update failed:", error);
                 });
         }

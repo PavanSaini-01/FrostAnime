@@ -1,6 +1,7 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { SupabaseAdapter } from "@auth/supabase-adapter";
+import jwt from "jsonwebtoken";
 
 export const authOptions: NextAuthOptions = {
     // We use the Supabase Adapter to sync NextAuth users into our database
@@ -18,10 +19,20 @@ export const authOptions: NextAuthOptions = {
         strategy: "jwt",
     },
     callbacks: {
-        async session({ session, token }) {
-            // Send properties to the client, like the user ID from Supabase
-            if (session.user) {
-                (session.user as any).id = token.sub;
+        async session({ session, user }) {
+            const signingSecret = process.env.SUPABASE_JWT_SECRET;
+
+            if (signingSecret && session.user) {
+                const payload = {
+                    aud: "authenticated",
+                    exp: Math.floor(new Date(session.expires).getTime() / 1000),
+                    sub: user.id,
+                    email: user.email,
+                    role: "authenticated",
+                };
+
+                (session as any).supabaseAccessToken = jwt.sign(payload, signingSecret);
+                (session.user as any).id = user.id;
             }
             return session;
         },

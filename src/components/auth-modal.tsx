@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Mail, Lock, Loader2, CheckCircle } from "lucide-react";
+import { X, Mail, Lock, Loader2, CheckCircle, Eye, EyeOff } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 
 export function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
     const [isLogin, setIsLogin] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState("");
@@ -42,7 +43,7 @@ export function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                 });
                 if (signInError) throw signInError;
                 setSuccess("Signed in successfully!");
-                setTimeout(() => handleClose(), 800);
+                setTimeout(() => { handleClose(); window.location.reload(); }, 800);
             } else {
                 const { data: { user } } = await supabase.auth.getUser();
 
@@ -54,7 +55,7 @@ export function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                     if (upgradeError) throw upgradeError;
                     await supabase.auth.refreshSession();
                     setSuccess("Account created! Your watchlist has been saved.");
-                    setTimeout(() => handleClose(), 1200);
+                    setTimeout(() => { handleClose(); window.location.reload(); }, 1200);
                 } else {
                     const { error: signUpError } = await supabase.auth.signUp({
                         email,
@@ -62,7 +63,7 @@ export function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                     });
                     if (signUpError) throw signUpError;
                     setSuccess("Account created! Check your email to confirm.");
-                    setTimeout(() => handleClose(), 1500);
+                    setTimeout(() => { handleClose(); window.location.reload(); }, 1500);
                 }
             }
         } catch (err: any) {
@@ -322,7 +323,7 @@ export function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                                         }}
                                     />
                                     <input
-                                        type="password"
+                                        type={showPassword ? "text" : "password"}
                                         required
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
@@ -331,7 +332,7 @@ export function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                                         style={{
                                             width: "100%",
                                             paddingLeft: "2.75rem",
-                                            paddingRight: "1rem",
+                                            paddingRight: "3rem",
                                             paddingTop: "0.875rem",
                                             paddingBottom: "0.875rem",
                                             background: "rgba(15, 23, 42, 0.6)",
@@ -352,6 +353,28 @@ export function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                                             e.currentTarget.style.boxShadow = "none";
                                         }}
                                     />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(prev => !prev)}
+                                        style={{
+                                            position: "absolute",
+                                            right: "1rem",
+                                            top: "50%",
+                                            transform: "translateY(-50%)",
+                                            background: "none",
+                                            border: "none",
+                                            cursor: "pointer",
+                                            color: "rgba(100, 116, 139, 1)",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            padding: 0,
+                                            transition: "color 0.2s",
+                                        }}
+                                        onMouseEnter={(e) => { e.currentTarget.style.color = "rgba(203, 213, 225, 1)"; }}
+                                        onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(100, 116, 139, 1)"; }}
+                                    >
+                                        {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                                    </button>
                                 </div>
                             </div>
 

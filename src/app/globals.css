@@ -414,3 +414,19 @@ body {
 .animate-spin {
   animation: spin 1s linear infinite;
 }
+
+/* Mobile Overrides */
+@media (max-width: 768px) {
+  .mobile-p {
+    padding: 1.5rem !important;
+  }
+  .mobile-title {
+    font-size: 1.75rem !important;
+  }
+  .mobile-desc {
+    font-size: 1rem !important;
+  }
+  .mobile-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

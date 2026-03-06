@@ -10,7 +10,7 @@ export default function Home() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
       {/* Hero Section */}
       <section
-        className="glass rounded-3xl"
+        className="glass rounded-3xl mobile-p"
         style={{
           position: 'relative',
           minHeight: '600px',
@@ -33,14 +33,14 @@ export default function Home() {
 
           {/* Section 1: Anime Lists */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--foreground)', textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+            <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--foreground)', textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
               Anime Categories
             </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div className="mobile-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
               {/* Card 1: Recommendations */}
               <Link href="/recommendations" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -59,10 +59,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <Play size={48} className="text-primary" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
                     <span className="text-gradient">No Cringe OP MC</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Tired of wimpy protagonists? Discover 15 anime with overpowered main characters.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontWeight: 600 }}>
@@ -74,7 +74,7 @@ export default function Home() {
               {/* Card 2: Seasonal */}
               <Link href="/seasonal" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -93,10 +93,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <Calendar size={48} className="text-secondary" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
                     <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, var(--secondary), var(--accent))' }}>Seasonal Guide</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Winter 2026 airings, upcoming Spring hits, and industry rumors.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--secondary)', fontWeight: 600 }}>
@@ -108,7 +108,7 @@ export default function Home() {
               {/* Card 3: Romance */}
               <Link href="/romance" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -127,10 +127,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <Heart size={48} color="#ec4899" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
                     <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #ec4899, #f43f5e)' }}>Melting Romance</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Enemies to lovers, tear-jerker endings, and pure wholesome vibes.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#ec4899', fontWeight: 600 }}>
@@ -142,7 +142,7 @@ export default function Home() {
               {/* Card 4: Action */}
               <Link href="/action" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -161,10 +161,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <Flame size={48} color="#f97316" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
                     <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #f97316, #ef4444)' }}>Blazing Action</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Overpowered MCs, zero hesitation, pure domination.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#f97316', fontWeight: 600 }}>
@@ -176,7 +176,7 @@ export default function Home() {
               {/* Card 5: Echi */}
               <Link href="/echi" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -195,10 +195,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <Sparkles size={48} color="#db2777" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
-                    <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #db2777, #9333ea)' }}>Plot & Passion</span>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                    <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #db2777, #9333ea)' }}>Echi (Plot & Passion)</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Top tier fan service meets surprisingly good story.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#db2777', fontWeight: 600 }}>
@@ -210,7 +210,7 @@ export default function Home() {
               {/* Card 6: Frozen */}
               <Link href="/frozen" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -229,10 +229,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <Snowflake size={48} color="#94a3b8" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
                     <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #94a3b8, #cbd5e1)' }}>Frozen in Time</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Atmospheric masterpieces for a quiet night.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontWeight: 600 }}>
@@ -247,7 +247,7 @@ export default function Home() {
 
       {/* Hero Section 2: Website Features */}
       <section
-        className="glass rounded-3xl"
+        className="glass rounded-3xl mobile-p"
         style={{
           position: 'relative',
           display: 'flex',
@@ -269,15 +269,15 @@ export default function Home() {
 
           {/* Section 2: Website Features */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--foreground)', textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+            <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--foreground)', textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
               Website Features
             </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div className="mobile-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
 
               {/* Card 7: Calendar */}
               <Link href="/calendar" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -296,10 +296,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <CalendarDays size={48} className="text-secondary" color="var(--primary)" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
                     <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, var(--primary), var(--secondary))' }}>Frost Calendar</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Never miss an episode. See exactly what days your favorite seasonal anime air.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontWeight: 600 }}>
@@ -311,7 +311,7 @@ export default function Home() {
               {/* Card 8: Watchlist */}
               <Link href="/watchlist" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -330,10 +330,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <Bookmark size={48} color="#facc15" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
                     <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #facc15, #f59e0b)' }}>Your Watchlist</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Keep track of everything you want to watch. Your personal localized FrostAnime queue.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#facc15', fontWeight: 600 }}>
@@ -345,7 +345,7 @@ export default function Home() {
               {/* Card 9: Roulette */}
               <Link href="/roulette" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -364,10 +364,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <Dices size={48} color="#ef4444" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
                     <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #ef4444, #b91c1c)' }}>Frost Roulette</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Decision paralysis? Let fate decide extreme recommendations for your next binge.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#ef4444', fontWeight: 600 }}>
@@ -379,7 +379,7 @@ export default function Home() {
               {/* Card 10: Blog */}
               <Link href="/blog" style={{ textDecoration: 'none', display: 'block' }}>
                 <motion.div
-                  className="glass hover-card"
+                  className="glass hover-card mobile-p"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "tween", duration: 0.2 }}
@@ -398,10 +398,10 @@ export default function Home() {
                   <div style={{ marginBottom: '1.5rem' }}>
                     <BookOpenText size={48} color="#10b981" />
                   </div>
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
+                  <h2 className="mobile-title" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1rem' }}>
                     <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #10b981, #047857)' }}>Frost Blog</span>
                   </h2>
-                  <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
+                  <p className="mobile-desc" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '1.5rem' }}>
                     Deep dives, tier lists, and reviews. Read our latest thoughts on the industry.
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#10b981', fontWeight: 600 }}>

@@ -20,6 +20,7 @@ export function Navbar() {
     const [hoveredPath, setHoveredPath] = React.useState<string | null>(null)
     const [showProfileMenu, setShowProfileMenu] = React.useState(false)
     const [showAuthModal, setShowAuthModal] = React.useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
     const profileMenuRef = React.useRef<HTMLDivElement>(null)
     const supabase = createClient()
 
@@ -281,12 +282,56 @@ export function Navbar() {
                             </button>
                         )}
 
-                        <button className="md:hidden p-2 rounded-full" style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--foreground)' }}>
+                        <button onClick={() => setMobileMenuOpen(prev => !prev)} className="md:hidden p-2 rounded-full" style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--foreground)' }}>
                             <Menu className="w-5 h-5" />
                         </button>
                     </div>
                 </div>
             </div>
+
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="md:hidden glass"
+                        style={{
+                            overflow: 'hidden',
+                            borderTop: '1px solid var(--border)',
+                        }}
+                    >
+                        <nav style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
+                            {[
+                                { name: "Home", href: "/" },
+                                { name: "Calendar", href: "/calendar" },
+                                { name: "Roulette", href: "/roulette" },
+                                { name: "Watchlist", href: "/watchlist" },
+                                { name: "Seasonal", href: "/seasonal" },
+                                { name: "Blog", href: "/blog" }
+                            ].map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    style={{
+                                        padding: '0.75rem 1rem',
+                                        fontSize: '1rem',
+                                        fontWeight: 500,
+                                        color: pathname === item.href ? 'var(--primary)' : 'var(--foreground)',
+                                        textDecoration: 'none',
+                                        borderRadius: '0.5rem',
+                                        marginBottom: '0.5rem',
+                                    }}
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </nav>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
         </motion.header>

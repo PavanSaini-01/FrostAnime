@@ -26,7 +26,7 @@ export default async function EchiPage() {
                 background: 'rgba(255, 255, 255, 0.03)'
             }}>
                 <h1 style={{ fontSize: '3.5rem', fontWeight: 900, marginBottom: '1rem', lineHeight: 1.1 }}>
-                    <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #ec4899, #db2777)' }}>Plot & Passion</span>
+                    <span className="text-gradient" style={{ backgroundImage: 'linear-gradient(to right, #ec4899, #db2777)' }}>Echi (Plot & Passion)</span>
                 </h1>
                 <p style={{ fontSize: '1.25rem', opacity: 0.8, maxWidth: '700px' }}>
                     A curated list that balances spicy fan service with strong plots and OP characters.

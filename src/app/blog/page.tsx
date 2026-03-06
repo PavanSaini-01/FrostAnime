@@ -1,6 +1,8 @@
+'use client';
 import Link from 'next/link';
 import { ArrowLeft, BookOpen, Clock, CalendarDays, TrendingUp, Compass, BrainCircuit, Calendar } from 'lucide-react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { SEARCH_ANIME_QUERY, PageResponse } from '@/lib/anilist';
 
 interface ArticleMeta {
@@ -66,7 +68,7 @@ export default async function BlogIndex() {
         let fallbackImage = '/blog/spring-tier-list.png';
         if (art.slug === 'top-10-hidden-gem-anime-decade') fallbackImage = '/blog/hidden-gems.png';
         if (art.slug === 'why-overpowered-mcs-are-taking-over') fallbackImage = '/blog/overpowered-mc.png';
-        if (art.slug === 'cyberpunk-edgerunners-perfect-tragedy') fallbackImage = '/blog/hidden-gems.png'; // Reuses the cityscape generic art
+        if (art.slug === 'cyberpunk-edgerunners-perfect-tragedy') fallbackImage = '/blog/cyberpunk-edgerunners.png';
 
         return {
             ...art,
@@ -148,18 +150,24 @@ export default async function BlogIndex() {
 
                         return (
                             <Link key={idx} href={`/blog/${article.slug}`} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-                                <div className="glass hover-card group" style={{
-                                    borderRadius: '1.5rem',
-                                    overflow: 'hidden',
-                                    background: 'var(--card)',
-                                    border: '1px solid var(--border)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    height: '100%',
-                                    position: 'relative',
-                                    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                                    cursor: 'pointer'
-                                }}>
+                                <motion.div
+                                    className="glass hover-card group"
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: idx * 0.1, type: 'spring', stiffness: 100 }}
+                                    whileHover={{ y: -6, scale: 1.02, transition: { type: 'spring', stiffness: 400, damping: 15 } }}
+                                    style={{
+                                        borderRadius: '1.5rem',
+                                        overflow: 'hidden',
+                                        background: 'var(--card)',
+                                        border: '1px solid var(--border)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        height: '100%',
+                                        position: 'relative',
+                                        transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                                        cursor: 'pointer'
+                                    }}>
                                     <div style={{ position: 'relative', height: '200px', width: '100%', flexShrink: 0, backgroundColor: '#0f172a' }}>
                                         <Image
                                             src={article.image}
@@ -207,7 +215,7 @@ export default async function BlogIndex() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             </Link>
                         );
                     })}

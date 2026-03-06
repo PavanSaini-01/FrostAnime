@@ -60,6 +60,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.7,
         },
         {
+            url: `${BASE_URL}/blog/top-10-hidden-gem-anime-decade`,
+            lastModified: new Date('2026-02-21'),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        },
+        {
+            url: `${BASE_URL}/blog/why-overpowered-mcs-are-taking-over`,
+            lastModified: new Date('2026-02-15'),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        },
+        {
+            url: `${BASE_URL}/blog/spring-2026-anime-tier-list`,
+            lastModified: new Date('2026-02-10'),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        },
+        {
+            url: `${BASE_URL}/blog/cyberpunk-edgerunners-perfect-tragedy`,
+            lastModified: new Date('2026-02-05'),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        },
+        {
             url: `${BASE_URL}/search`,
             lastModified: new Date(),
             changeFrequency: 'monthly',

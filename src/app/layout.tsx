@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { WatchlistProvider } from "@/lib/watchlist-context";
 import { SupabaseProvider } from "@/components/supabase-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({
             </ThemeProvider>
           </WatchlistProvider>
         </SupabaseProvider>
+        <Analytics />
       </body>
     </html>
   );
